@@ -2,6 +2,6 @@
 
 node {
 	stage ("Checkout") {
-		sh 'echo "My branch is test"'
+		checkout scm
 	}
 }
