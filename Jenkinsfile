@@ -2,7 +2,7 @@
 
 node {
     stage ("Test new PR2") {
-		sh 'echo ${env.BRANCH_NAME}'
+		sh 'echo $BRANCH_NAME'
 	}
 
     stage "Cleanup"
