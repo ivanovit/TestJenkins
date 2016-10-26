@@ -1,7 +1,10 @@
 #!groovy
 
 node {
-    stage "Prepare environment"
+    
+	
+	
+	stage "Prepare environment"
         checkout scm
         def environment  = docker.build 'cloudbees-node'
 
