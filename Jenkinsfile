@@ -4,7 +4,7 @@ node {
     stage "Prepare environment"
         checkout scm
 
-        docker.image('node:5.11.1').inside { {
+        docker.image('node:5.11.1').inside { 
             stage "Checkout and build deps"
                 sh "npm install"
 
