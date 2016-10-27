@@ -5,13 +5,19 @@ node {
         checkout scm
 
         docker.image('node').inside { 
-            stage "Checkout and build deps"
-                sh "npm install"
+            stage "Install Dependencies"
+                sh "cd build && npm install"
+				
+			stage "Validate"
+                sh "./build/node_modules/.bin/gulp:eslint"
+			
+			
+            stage "Build Package with Electron Builder"
+                sh "./build/node_modules/.bin/build -m"
+				
+			
 
-            stage "Validate types"
-                sh "./node_modules/.bin/flow"
-
-            stage "Test and validate"
+            stage "Validate"
                 sh "npm install gulp-cli && ./node_modules/.bin/gulp"
                 junit 'reports/**/*.xml'
         }
