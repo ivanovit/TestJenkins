@@ -12,6 +12,7 @@ node {
         sh "cd src && npm install"
 
     stage "Running style checks"
+        env.PATH = "~/.npm-global/bin:${env.PATH}"
         sh "gulp eslint"
         
     sh "npm install gulp-cli && ./node_modules/.bin/gulp"
