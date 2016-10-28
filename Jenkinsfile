@@ -1,12 +1,13 @@
 #!groovy
 
 node {
-    stage "Prepare environment"
+    stage "Checkout"
         checkout scm
+		
+	stage "NPM install"
+         sh "cd build && npm install"
 
-        docker.image('node').inside { 
-            stage "Install Dependencies"
-                sh "cd build && npm install"
+       docker.image('electronuserland/electron-builder:wine').inside { 
 				
 			stage "Validate"
                 sh "./build/node_modules/.bin/gulp:eslint"
