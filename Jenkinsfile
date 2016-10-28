@@ -1,11 +1,10 @@
 #!groovy
 
 node {
-    stage "Checkout" {
+    stage "Checkout" 
         checkout scm
 		sh "npm config set registry http://registry.npmjs.org/"
 		sh "cd build && npm install"
-	}
 
        docker.image('electronuserland/electron-builder:wine').inside { 
 			stage "Validate"
