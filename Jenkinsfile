@@ -3,12 +3,8 @@
 node {
     stage "Checkout"
         checkout scm
-		
-		docker.image('node').inside { 
-			stage "NPM install"
-				sh "npm config set registry http://registry.npmjs.org/"
-				sh "cd build && npm install"
-		}
+		stage "NPM install"
+			sh "npm config set registry http://registry.npmjs.org/"
 
        docker.image('electronuserland/electron-builder:wine').inside { 
 			
