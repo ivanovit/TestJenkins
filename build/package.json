@@ -16,6 +16,7 @@
     "eslint-config-airbnb-base": "^9.0.0",
     "eslint-plugin-import": "^2.0.1",
     "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.2",
     "gulp-eslint": "^3.0.1",
     "gulp-task-loader": "^1.4.4",
     "gulp-util": "^3.0.7",
