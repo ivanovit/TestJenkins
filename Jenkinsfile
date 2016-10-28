@@ -4,7 +4,7 @@ node {
     stage "Checkout" 
         checkout scm
     stage "Preparing environment"
-        sh "npm install gulp -g"
+        sh "npm install --global gulp-cli"
    
     stage "Installing NPM Project Dependecies"   
         sh "cd build && npm install"
