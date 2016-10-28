@@ -3,17 +3,18 @@
 node {
     stage "Checkout" 
         checkout scm
-            sh "npm config set registry http://registry.npmjs.org/"
-            sh "cd build && npm install"
+    stage "Preparing environment"
+        sh "npm install gulp -g"
+   
+    stage "Installing NPM Project Dependecies"   
+        sh "cd build && npm install"
+        sh "cd src && npm install"
 
-        stage "Validate"
-            sh "./build/node_modules/.bin/gulp:eslint"
+    stage "Running style checks"
+        sh "gulp eslint"
         
-        stage "Build Package with Electron Builder"
-            sh "./build/node_modules/.bin/build -m"\
-        stage "Validate"
-            sh "npm install gulp-cli && ./node_modules/.bin/gulp"
-            junit 'reports/**/*.xml'
+    sh "npm install gulp-cli && ./node_modules/.bin/gulp"
+        junit 'reports/**/*.xml'
         
 
     stage "Cleanup"
