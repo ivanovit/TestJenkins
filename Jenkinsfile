@@ -6,7 +6,7 @@ node {
 		
 		docker.image('node').inside { 
 			stage "NPM install"
-				npm config set registry http://registry.npmjs.org/
+				sh "npm config set registry http://registry.npmjs.org/"
 				sh "cd build && npm install"
 		}
 
