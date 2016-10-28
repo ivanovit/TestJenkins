@@ -4,6 +4,7 @@ node {
     stage "Checkout" 
         checkout scm
     stage "Preparing environment"
+        env.PATH = "~/.npm-global/bin:${env.PATH}"
         sh "npm install --global gulp-cli"
    
     stage "Installing NPM Project Dependecies"   
