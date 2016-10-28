@@ -13,6 +13,7 @@ node {
 
     stage "Running style checks"
         env.PATH = "~/.npm-global/bin:${env.PATH}"
+        sh "echo $PATH"
         sh "gulp eslint"
         
     sh "npm install gulp-cli && ./node_modules/.bin/gulp"
