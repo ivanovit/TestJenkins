@@ -6,6 +6,7 @@ node {
 
        docker.image('electronuserland/electron-builder:wine').inside { 
 			stage "NPM install"
+				npm config set registry http://registry.npmjs.org/
 				sh "cd build && npm install"
 			
 			stage "Validate"
