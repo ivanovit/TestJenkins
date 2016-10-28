@@ -3,12 +3,11 @@
 node {
     stage "Checkout"
         checkout scm
-		
-	stage "NPM install"
-         sh "cd build && npm install"
 
        docker.image('electronuserland/electron-builder:wine').inside { 
-				
+			stage "NPM install"
+				sh "cd build && npm install"
+			
 			stage "Validate"
                 sh "./build/node_modules/.bin/gulp:eslint"
 			
