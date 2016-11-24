@@ -1,6 +1,11 @@
 #!groovy
 
 node("linux") {
+    
+    stage ("Cleanup") {
+        deleteDir()
+    }  
+
     stage ("Checkout") {
         checkout scm
     }
@@ -16,8 +21,4 @@ node("linux") {
             sh "cd build && ./node_modules/.bin/gulp electron-builder"
         }
     }
-
-    stage ("Cleanup") {
-        deleteDir()
-    }   
 }
