@@ -9,10 +9,10 @@ node("linux") {
     stage ("Checkout") {
         checkout scm
     }
-    
+
     docker.image('electronuserland/electron-builder:wine').inside('-ti -u root -v cached-node-modules:/node_modules -v /home/parallels/.electron:/root/.electron') {
         stage("Test") {
-            sh '/test.sh'
+            sh 'curl "http://github.com"'
         }
 
         stage ("Build the product") {
