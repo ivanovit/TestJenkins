@@ -5,7 +5,7 @@ node("linux") {
         checkout scm
     }
 
-    docker.image('electronuserland/electron-builder:wine').inside('-ti -v ${PWD}:/project -v ~/.electron:/root/.electron') {
+    docker.image('electronuserland/electron-builder:wine').inside('-ti -v ${PWD}:/project -v /home/parallels/.electron:/root/.electron') {
         stage ("Install project dependecies")   {
             sh "cd build && npm install"
             sh "cd src && npm install"
