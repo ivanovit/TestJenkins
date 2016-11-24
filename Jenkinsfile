@@ -5,7 +5,7 @@ node("linux") {
         checkout scm
     }
 
-    docker.image('electronuserland/electron-builder:wine').inside('-v /home/parallels/.electron:/root/.electron') {
+    docker.image('electronuserland/electron-builder:wine').inside('-v /home/parallels/.electron:/root/.electron', '-ti') {
         stage ("Test docker") {
             sh 'hostname'
         }
