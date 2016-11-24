@@ -14,7 +14,7 @@ node("mac") {
         }
 
         stage ("Build the product") {
-            sh "./build/node_modules/.bin/build src -wl"
+            sh "cd build && ./node_modules/.bin/build -wl"
         }
     }
 }
