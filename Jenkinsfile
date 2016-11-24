@@ -1,11 +1,6 @@
 #!groovy
 
-node("mac") {
-    
-    stage ("Cleanup") {
-        deleteDir()
-    }  
-
+node("mac") {  
     stage ("Checkout") {
         checkout scm
     }
@@ -19,7 +14,7 @@ node("mac") {
         }
 
         stage ("Build the product") {
-            sh "./buid/node_modules/.bin/build src -wl"
+            sh "./build/node_modules/.bin/build src -wl"
         }
     }
 }
