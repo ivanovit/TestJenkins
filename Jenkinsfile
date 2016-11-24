@@ -12,13 +12,13 @@ node("linux") {
     
     stage ("Install project dependecies")   {
         sh "npm --version"
-        sh "cd build && npm install --verbose"
+        sh "cd build && npm install"
         sh "cd src && npm install"
     }
 
     docker.image('electronuserland/electron-builder:wine').inside('-ti -v cached-node-modules:/node_modules -v /home/parallels/.electron:/root/.electron') {
         stage("Test") {
-            sh "ping github.com"
+            sh 'curl "http://github.com"'
         }
 
         stage ("Build the product") {
