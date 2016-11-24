@@ -5,7 +5,7 @@ node("linux") {
         checkout scm
     }
 
-    docker.image('electron-builder:wine').inside {
+    docker.image('electronuserland/electron-builder:wine').inside {
         stage "Test docker" {
             sh "Run in Docker"
         }
