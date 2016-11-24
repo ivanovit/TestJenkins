@@ -1,8 +1,14 @@
 #!groovy
 
-node {
+node("linux") {
     stage ("Checkout") {
         checkout scm
+    }
+
+    docker.image('electron-builder:wine').inside {
+        stage "Test docker" {
+            sh "Run in Docker"
+        }
     }
         
     stage ("Install project dependecies")   {
