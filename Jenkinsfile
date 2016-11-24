@@ -6,7 +6,7 @@ node("linux") {
     }
 
     docker.image('electronuserland/electron-builder:wine').inside {
-        stage "Test docker" {
+        stage ("Test docker") {
             sh "Run in Docker"
         }
     }
