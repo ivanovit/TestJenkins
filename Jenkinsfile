@@ -18,5 +18,9 @@ node("mac") {
                 sh "cd build && ./node_modules/.bin/build -wl"
             }
         }
+
+        stage ("Archiving") {
+            archiveArtifacts 'build/dist/win/**/*'
+        }
     }
 }
