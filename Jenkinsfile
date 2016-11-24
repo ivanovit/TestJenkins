@@ -16,7 +16,7 @@ node("linux") {
         sh "cd src && npm install"
     }
 
-    docker.image('electronuserland/electron-builder:latest').inside('-ti -v cached-node-modules:/node_modules -v /home/parallels/.electron:/root/.electron') {
+    docker.image('node').inside('-ti -v cached-node-modules:/node_modules -v /home/parallels/.electron:/root/.electron') {
         stage("Test") {
             sh 'curl "http://github.com"'
         }
