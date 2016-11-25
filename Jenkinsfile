@@ -15,7 +15,7 @@ node("mac") {
 
         stage ("Build the product") {
             ansiColor('xterm') {
-                sh "cd build && ./node_modules/.bin/build -wl"
+                sh "cd build && ./node_modules/.bin/build -mwl"
             }
         }
 
