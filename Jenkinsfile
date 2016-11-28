@@ -13,7 +13,9 @@ node {
     }
 
     stage ("Run ") {
+        wrap([$class: 'Xvfb']) {
             sh "cd src && node_modules/.bin/electron ."
+        }
     }
     
     stage ("Build the product") {
