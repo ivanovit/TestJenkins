@@ -5,7 +5,8 @@ node("linux") {
         checkout scm
     }
 
-        stage ("Install project dependecies")   {
+    docker.image('electronuserland/electron-builder:wine').inside('-ti -u root -v cached-node-modules:/node_modules -v /Users/iiivanov/.electron:/root/.electron') {
+         stage ("Install project dependecies")   {
             sh "npm --version"
             sh "node --version"
             sh "cd build && npm install"
@@ -17,9 +18,8 @@ node("linux") {
                 sh "cd src && node_modules/.bin/electron ."
             }
         }
-
-    docker.image('electronuserland/electron-builder:wine').inside('-ti -u root -v cached-node-modules:/node_modules -v /Users/iiivanov/.electron:/root/.electron') {
-         stage ("Build the product") {
+        
+        stage ("Build the product") {
             ansiColor('xterm') {
                 sh "cd build && ./node_modules/.bin/build -mwl"
             }
