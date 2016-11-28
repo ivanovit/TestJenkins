@@ -5,7 +5,7 @@ node {
         checkout scm
     }
 
-    docker.image('electronuserland/electron-builder:wine').inside('-ti -u root -v cached-node-modules:/node_modules -v /Users/iiivanov/.electron:/root/.electron') {
+    docker.image('beneaththeink/node-xvfb').inside() {
          stage ("Install project dependecies")   {
             sh "npm --version"
             sh "node --version"
