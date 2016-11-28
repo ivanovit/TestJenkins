@@ -1,6 +1,6 @@
 #!groovy
 
-node("linux") {  
+node {  
     stage ("Checkout") {
         checkout scm
     }
@@ -14,15 +14,11 @@ node("linux") {
         }
 
         stage ("Run ") {
-            ansiColor('xterm') {
-                sh "cd src && node_modules/.bin/electron ."
-            }
+             sh "cd src && node_modules/.bin/electron ."
         }
         
         stage ("Build the product") {
-            ansiColor('xterm') {
-                sh "cd build && ./node_modules/.bin/build -mwl"
-            }
+            sh "cd build && ./node_modules/.bin/build -mwl"
         }
 
         stage ("Archiving") {
