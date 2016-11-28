@@ -13,7 +13,7 @@ node {
     }
 
     stage ("Run ") {
-         sh "cd src && xvfb-maybe node_modules/.bin/electron ."
+         sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
     }
     
     stage ("Build the product") {
