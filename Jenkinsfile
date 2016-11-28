@@ -14,7 +14,7 @@ node {
 
     stage ("Run ") {
         wrap([$class: 'Xvfb']) {
-            sh "cd src && node_modules/.bin/electron ."
+            sh "cd src && xvfb-maybe node_modules/.bin/electron ."
         }
     }
     
