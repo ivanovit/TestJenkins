@@ -5,7 +5,7 @@ node {
         checkout scm
     }
 
-    docker.image('beneaththeink/node-xvfb') {
+    docker.image('node') {
         stage ("Install project dependecies")   {
             sh "npm --version"
             sh "node --version"
@@ -14,7 +14,9 @@ node {
         }
 
         stage ("Run ") {
-            sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+            wrap([$class: 'Xvfb']) {
+                sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+            }
         }
     }
     
