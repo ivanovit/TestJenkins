@@ -19,7 +19,7 @@ node("linux") {
             stage ("Run ") {
                 sh "pwd"
                 sh "echo $DISPLAY"
-                sh "cd src && node_modules/.bin/electron ."
+                sh "export ELECTRON_ENABLE_LOGGING=true && cd src && node_modules/.bin/electron ."
             }
         }
         
