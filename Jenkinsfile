@@ -14,7 +14,7 @@ node("linux") {
 
     docker.image('beneaththeink/node-xvfb').inside() {
 
-        wrap([$class: 'Xvfb', installationName: "System", displayName: 99, debug: true, additionalOptions: " -extension RANDR"  ]) {
+        wrap([$class: 'Xvfb', installationName: "System", displayName: 99, debug: true, additionalOptions: "-extension RANDR"  ]) {
             stage ("Run ") {
                 sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
             }
