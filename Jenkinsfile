@@ -15,7 +15,7 @@ node("linux") {
     docker.image('aheuermann/electron').inside() {
         sh "pwd"
 
-        wrap([$class: 'Xvfb', installationName: "System", displayName: 99,  debug: true, additionalOptions: "+extension RANDR -fbdir './test'"  ]) {
+
             stage ("Run ") {
                 sh "pwd"
                 sh "echo $DISPLAY"
@@ -23,7 +23,7 @@ node("linux") {
                     sh "export ELECTRON_ENABLE_LOGGING=true && cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
                 }
             }
-        }
+        
         
         stage ("Build the product") {
             sh "cd build && ./node_modules/.bin/build -mwl"
