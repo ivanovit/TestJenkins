@@ -14,7 +14,7 @@ node("linux") {
 
     docker.image('beneaththeink/node-xvfb').inside() {
 
-        wrap([$class: 'Xvfb', installationName: "/usr/bin"]) {
+        wrap([$class: 'Xvfb', installationName: "/usr/bin/Xvfb"]) {
             stage ("Run ") {
                 sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
             }
