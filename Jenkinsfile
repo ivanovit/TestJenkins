@@ -1,6 +1,6 @@
 #!groovy
 
-node("master") {  
+node("linux") {  
     stage ("Checkout") {
         checkout scm
     }
