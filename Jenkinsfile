@@ -14,9 +14,9 @@ node("linux") {
 
     docker.image('beneaththeink/node-xvfb').inside() {
 
-        wrap([$class: 'Xvfb', installationName: "System"]) {
+        wrap([$class: 'Xvfb', installationName: "System", displayName: 99, debug: true, additionalOptions: "-screen 0 1024x768x24 -extension RANDR"  ]) {
             stage ("Run ") {
-                sh "cd src && export DISPLAY=':99.0' && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+                sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
             }
         }
         
