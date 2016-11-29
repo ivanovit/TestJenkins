@@ -12,10 +12,10 @@ node("linux") {
             sh " cd src && npm install"
     }
 
-    docker.image('beneaththeink/node-xvfb').inside() {
+    docker.image('aheuermann/electron').inside() {
         sh "pwd"
 
-        wrap([$class: 'Xvfb', installationName: "System", displayName:99,  debug: true, additionalOptions: "+extension RANDR -fbdir './test'"  ]) {
+        wrap([$class: 'Xvfb', installationName: "System", displayName: 99,  debug: true, additionalOptions: "+extension RANDR -fbdir './test'"  ]) {
             stage ("Run ") {
                 sh "pwd"
                 sh "echo $DISPLAY"
