@@ -9,7 +9,7 @@ node {
          stage ("Install project dependecies")   {
             sh "npm --version"
             sh "node --version"
-            sh "cd build && npm install"
+            sh "NPM_CONFIG_PREFIX=~/.npm-global && cd build && npm install"
             sh "cd src && npm install"
         }
 
