@@ -16,7 +16,7 @@ node("linux") {
 
         wrap([$class: 'Xvfb', installationName: "System"]) {
             stage ("Run ") {
-                sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+                sh "cd src && export DISPLAY=':99.0' && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
             }
         }
         
