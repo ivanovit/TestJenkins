@@ -14,8 +14,7 @@ node("linux") {
 
     docker.image('beneaththeink/node-xvfb').inside() {
         sh "pwd"
-        sh "mkdir ./test"
-
+        
         wrap([$class: 'Xvfb', installationName: "System", displayName:99,  debug: true, additionalOptions: "+extension RANDR -fbdir './test'"  ]) {
             stage ("Run ") {
                 sh "pwd"
