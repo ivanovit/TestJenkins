@@ -5,7 +5,7 @@ const path = require("path");
 let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
-        show: true
+        show: false
     });
 
     mainWindow.loadURL(`http://abv.bg`);
