@@ -16,7 +16,7 @@ node("linux") {
 
         wrap([$class: 'Xvfb', installationName: "System", debug: true, additionalOptions: "-extension RANDR"  ]) {
             stage ("Run ") {
-                sh "cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+                sh "cd src && node_modules/.bin/electron ."
             }
         }
         
