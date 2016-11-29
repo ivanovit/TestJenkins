@@ -12,7 +12,7 @@ node("master") {
             sh " cd src && npm install"
     }
 
-    docker.image('beneaththeink/node-xvfb').inside() {
+    
 
         wrap([$class: 'Xvfb', installationName: "System"]) {
             stage ("Run ") {
@@ -27,5 +27,5 @@ node("master") {
         stage ("Archiving") {
             archiveArtifacts 'build/dist/win/**/*'
         }
-    }
+    
 }
