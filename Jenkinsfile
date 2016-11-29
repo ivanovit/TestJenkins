@@ -20,7 +20,7 @@ node("linux") {
                 sh "pwd"
                 sh "echo $DISPLAY"
                 timeout(time: 20, unit: 'SECONDS') {
-                    sh "export ELECTRON_ENABLE_LOGGING=true && cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+                    sh "export ELECTRON_ENABLE_LOGGING=true && cd src && sudo node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
                 }
             }
         
