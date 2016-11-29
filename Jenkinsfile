@@ -1,6 +1,6 @@
 #!groovy
 
-node {  
+node("linux") {  
     stage ("Checkout") {
         checkout scm
     }
@@ -10,7 +10,7 @@ node {
             sh "npm --version"
             sh "node --version"
             sh "NPM_CONFIG_PREFIX=~/.npm-global && cd build && npm install"
-            sh "cd src && npm install"
+            sh " cd src && npm install"
         }
 
         stage ("Run ") {
