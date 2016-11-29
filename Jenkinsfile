@@ -1,6 +1,6 @@
 #!groovy
 
-node("linux") {  
+node("master") {  
     stage ("Checkout") {
         checkout scm
     }
@@ -12,7 +12,7 @@ node("linux") {
             sh " cd src && npm install"
     }
 
-    
+    docker.image('beneaththeink/node-xvfb').inside() {
 
         wrap([$class: 'Xvfb', installationName: "System"]) {
             stage ("Run ") {
@@ -27,5 +27,5 @@ node("linux") {
         stage ("Archiving") {
             archiveArtifacts 'build/dist/win/**/*'
         }
-    
+    }
 }
