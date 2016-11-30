@@ -12,7 +12,7 @@ node("linux") {
             sh " cd src && npm install"
     }
 
-    docker.image('beneaththeink/node-xvfb').inside("--user root") {
+    docker.image('beneaththeink/node-xvfb').inside() {
         sh "pwd"
 
             stage ("Run ") {
