@@ -21,14 +21,5 @@ node("linux") {
                     sh "export ELECTRON_ENABLE_LOGGING=true && cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
                 
             }
-        
-        
-        stage ("Build the product") {
-            sh "cd build && ./node_modules/.bin/build -mwl"
-        }
-
-        stage ("Archiving") {
-            archiveArtifacts 'build/dist/win/**/*'
-        }
     }
 }
