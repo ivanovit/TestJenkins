@@ -3,7 +3,9 @@
 node("linux") {  
     stage ("Checkout") {
         checkout scm
-        unzip(archive: true, zipFile: "node_modules.zip", dir: "build")
+
+            unzip(archive: true, zipFile: "node_modules.zip", dir: "build")
+        
     }
     
     stage ("Install project dependecies")   {
@@ -17,6 +19,7 @@ node("linux") {
             sh "rm node_modules.zip"
             zip(archive: true, zipFile: "node_modules.zip", dir: "build", glob: "node_modules/**")
             sh "rm -rf build/node_modules"
+             sh "rm node_modules.zip"
         }
     
 }
