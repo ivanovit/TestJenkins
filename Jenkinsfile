@@ -3,6 +3,8 @@
 node("linux") {  
     stage ("Checkout") {
         checkout scm
+        def hasNodeModules = sh script: '-d build/node_modules', returnStdout: true
+        echo hasNodeModules
         if (fileExists('node_modules.zip')) {
             unzip(archive: true, zipFile: "node_modules.zip", dir: "build")
         }
