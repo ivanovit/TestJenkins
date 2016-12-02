@@ -13,6 +13,6 @@ node("linux") {
     }
 
     stage ("Cache dependencies")   {
-        zip(zipFile: "node_modules.zip", dir: "build", glob: "build/node_modules/*")
+        zip(zipFile: "node_modules.zip", dir: "build", glob: "build/node_modules/**/*")
     }
 }
