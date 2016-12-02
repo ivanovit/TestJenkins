@@ -21,6 +21,7 @@ node("linux") {
             },
             "Build": {
                 node ('windows') {
+                    checkout scm
                     bat "node_modules\\.bin\\build -w"
                 }
             }
