@@ -5,7 +5,7 @@ node("linux") {
         checkout scm
         def hasNodeModules = sh script: "[ -d build/node_modules ] && echo 'Yes'", returnStdout: true
         echo hasNodeModules
-        if (fileExists('node_modules.zip')) {
+        if (fileExists('node_modules.zip') && hasNodeModules != 'Yes') {
             unzip(archive: true, zipFile: "node_modules.zip", dir: "build")
         }
     }
@@ -22,8 +22,6 @@ node("linux") {
                 sh "rm node_modules.zip"
             }
             zip(archive: true, zipFile: "node_modules.zip", dir: "build", glob: "node_modules/**")
-            sh "rm -rf build/node_modules"
-             sh "rm node_modules.zip"
         }
     
 }
