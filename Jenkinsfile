@@ -9,11 +9,10 @@ node("linux") {
         sh "npm --version"
         sh "node --version"
         sh "cd build && npm install"
-        sh " cd src && npm install"
     }
 
     stage ("Cache dependencies")   {
         sh "rm node_modules.zip"
-        zip(zipFile: "node_modules.zip", dir: "build", glob: "build/node_modules/**/*")
+        zip(archive: true, zipFile: "node_modules.zip", dir: "build", glob: "node_modules/**")
     }
 }
