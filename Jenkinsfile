@@ -22,7 +22,8 @@ node("linux") {
             "Build": {
                 node ('windows') {
                     checkout scm
-                    bat "node_modules\\.bin\\build -w"
+                    bat "cd build && npm install"
+                    bat "cd build && node_modules\\.bin\\build -w"
                 }
             }
     }
