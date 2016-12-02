@@ -1,0 +1,40 @@
+{
+    "extends": "airbnb-base",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "impliedStrict": true 
+        }
+    },
+    "rules": {
+        "semi": 2,
+        "camelcase": ["error", { "properties": "never" }],
+        "new-cap": ["error", {
+            "newIsCap": true,
+            "newIsCapExceptions": [],
+            "capIsNew": true
+        }],
+        "indent": ["error", 4, { "SwitchCase": 1, "VariableDeclarator": 1, "outerIIFEBody": 1 }],
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "space-in-parens": ["error", "never"],
+        "linebreak-style": "off",
+        "object-curly-spacing": ["error", "never"],
+        "comma-dangle": "off",
+        "global-require": "off",
+        "max-params": ["error", 3],
+        "max-len": ["error", 140, 4, {
+            "ignoreUrls": true,
+            "ignoreComments": false,
+            "ignoreStrings": false,
+            "ignoreTemplateLiterals": false
+        }],
+        "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+        "arrow-parens": ["error", "always"],
+        "import/no-extraneous-dependencies": "off",
+        "import/no-dynamic-require": "off",
+        "no-new": "off",
+        "class-methods-use-this": "off",
+        "func-names": "off"
+    }
+}

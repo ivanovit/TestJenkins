@@ -1,22 +1,27 @@
 #!groovy
 
-node {
-    
-	
-	
-	stage "Prepare environment"
+node("linux") {  
+    stage ("Checkout") {
         checkout scm
-        def environment  = docker.build 'cloudbees-node'
-
-        environment.inside {
-            stage "Checkout and build deps"
-                sh "npm install"
-
-            stage "Test and validate"
-                sh "npm install gulp-cli && ./node_modules/.bin/gulp"
-                junit 'reports/**/*.xml'
+        def hasNodeModules = sh(script: "if [ -d build/node_modules ]; then echo Yes; else echo No; fi", returnStdout: true).trim()
+        echo hasNodeModules
+        if (fileExists('node_modules.zip') && hasNodeModules == "No") {
+            unzip(archive: true, zipFile: "node_modules.zip", dir: "build")
         }
+    }
+    
+    stage ("Install project dependecies")   {
+        sh "npm --version"
+        sh "node --version"
+        sh "cd build && npm install"
+    }
 
-    stage "Cleanup"
-        deleteDir()
+    
+        stage ("Cache dependencies")   {
+            if (fileExists('node_modules.zip')) {
+                sh "rm node_modules.zip"
+            }
+            zip(archive: true, zipFile: "node_modules.zip", dir: "build", glob: "node_modules/**")
+        }
+    
 }

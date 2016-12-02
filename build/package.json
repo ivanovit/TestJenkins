@@ -1,0 +1,37 @@
+{
+  "name": "fusion",
+  "version": "0.0.1",
+  "description": "AppBuilder desktop app build",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Icenium/fusion.git"
+  },
+  "author": "Progress",
+  "bugs": {
+    "url": "https://github.com/Icenium/fusion/issues"
+  },
+  "homepage": "https://github.com/Icenium/fusion#readme",
+  "devDependencies": {
+    "electron-builder": "^7.14.1",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-task-loader": "^1.4.4",
+    "gulp-util": "^3.0.7",
+    "yargs": "^6.2.0"
+  },
+  "build": {
+    "appId": "fusion",
+    "productName": "Fusion",
+    "overwrite": true,
+    "asar": true,
+    "electronVersion": "1.2.5",
+    "output": "dist2/"
+  },
+  "directories": {
+    "app": "../src",
+    "output": "../dist2/"
+  }
+}
