@@ -22,7 +22,7 @@ node("linux") {
             },
             "Build": {
                 node ('windows') {
-                    bat "node_modules\.bin\build -w"
+                    bat "node_modules\\.bin\\build -w"
                 }
             }
         }
