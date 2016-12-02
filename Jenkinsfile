@@ -14,12 +14,17 @@ node("linux") {
                 sh "cd build && npm install"
                 sh " cd src && npm install"
         }
-            
-            
-            stage ("Run ") {
+
+        stage ("Run test") {
+            parallel "Tests" : {
                 sh "pwd"
-                    sh "export ELECTRON_ENABLE_LOGGING=true && cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
-                
+                sh "export ELECTRON_ENABLE_LOGGING=true && cd src && node_modules/.bin/xvfb-maybe node_modules/.bin/electron ."
+            },
+            "Build": {
+                node ('windows') {
+                    bat "node_modules\.bin\build -w"
+                }
             }
+        }
     }
 }

@@ -27,9 +27,11 @@
     "productName": "Fusion",
     "overwrite": true,
     "asar": true,
-    "electronVersion": "1.2.5"
+    "electronVersion": "1.2.5",
+    "output": "dist2/"
   },
   "directories": {
-    "app": "../src"
+    "app": "../src",
+    "output": "../dist2/"
   }
 }
