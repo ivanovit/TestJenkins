@@ -19,7 +19,7 @@ node("linux") {
         }   
     }
 
-    state ("GG") {
+    stage ("GG") {
         node ('windows') {
             checkout scm
             bat "cd build && npm install"
