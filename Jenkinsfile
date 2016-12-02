@@ -3,9 +3,9 @@
 node("linux") {  
     stage ("Checkout") {
         checkout scm
-
+        if (fileExists('node_modules.zip')) {
             unzip(archive: true, zipFile: "node_modules.zip", dir: "build")
-        
+        }
     }
     
     stage ("Install project dependecies")   {
