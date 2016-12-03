@@ -8,13 +8,13 @@ node {
         checkout scm
 
 	    stage "Checkout and build deps"
-	    sleep 10000
+	    sleep 1
 
 	    stage "Test and validate"
-	    sleep 10000
+	    sleep 1
 
 	    stage "Test and validate"
-	    sleep 10000
+	    sleep 1
 
 
     stage "Cleanup"
