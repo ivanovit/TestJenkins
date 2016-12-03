@@ -3,19 +3,19 @@
 node {
     
 	
-	milestone 4
+	milestone 1
 	stage "Prepare environment"
         checkout scm
 	    
-	milestone 3
+	milestone 2
 	    stage "Checkout and build deps"
 	    sleep 30
 	
-	milestone 2
+	milestone 3
 	    stage "Test and validate"
 	    sleep 30
 	
-	milestone 1
+	milestone 4
 	    stage "Test and validate"
 	    sleep 30
 
