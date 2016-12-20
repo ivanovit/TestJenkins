@@ -5,7 +5,8 @@ node {
 	
 	milestone 1
 	stage ("Prepare environment") {
-        	checkout scm
+        	sh "git clean -fdx -e node_modules"
+		checkout scm
 	}
 	    
 	milestone 2
