@@ -5,7 +5,6 @@ node {
 	
 	milestone 1
 	stage ("Prepare environment") {
-        	sh "git clean -fdx -e node_modules"
 		checkout scm
 		sh "export"
 	}
