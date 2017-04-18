@@ -13,6 +13,7 @@ node {
 			 userRemoteConfigs: scm.userRemoteConfigs
 		    ])
 		println "COMMIT ===>"
+		sh 'echo $GIT_COMMIT'
 		sh "${env.GIT_COMMIT}"
 	}
 	    
