@@ -5,7 +5,13 @@ node {
 	
 	milestone 1
 	stage ("Prepare environment") {
-		checkout scm
+		    checkout([
+			 $class: 'GitSCM',
+			 branches: scm.branches,
+			 doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+			 extensions: scm.extensions,
+			 userRemoteConfigs: scm.userRemoteConfigs
+		    ])
 		println "COMMIT ===>"
 		sh "${env.GIT_COMMIT}"
 	}
