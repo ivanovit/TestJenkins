@@ -6,7 +6,8 @@ node {
 	milestone 1
 	stage ("Prepare environment") {
 		checkout scm
-		sh "COMMIT ===> ${env.GIT_COMMIT}"
+		sh "COMMIT ===>"
+		sh "${env.GIT_COMMIT}"
 	}
 	    
 	milestone 2
